@@ -83,6 +83,7 @@ DATABASES = {
         'USER': 'soccer_team',
         'PASSWORD': 'spid3rman#',
         'HOST': 'localhost',
+        'DATABASE_PORT': '5432'
     }
 }
 

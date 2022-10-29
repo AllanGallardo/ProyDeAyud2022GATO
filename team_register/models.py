@@ -3,7 +3,8 @@ from dataclasses import field
 from random import choices
 from secrets import choice
 from django.db import models 
-from django.utils.translation import gettext_lazy as _
+from .choices import POSITION_CHOICES
+
 '''class Profile(models.Model):
 
     customer_username = models.CharField(max_length=100)
@@ -50,41 +51,20 @@ class CViewerForm(forms.Form):
 
 
 
+
 # Create your models here.
 # Cada clase representará una tabla en la base de datos
 
-class Posicion(models.Model):
-    
-    class Rol(models.TextChoices):
-        ''' Esta clase nos proveerá la info de las 
-        opciones disponibles para la posición de un miembro '''
-        DIRECTOR_TECNICO = 'DT', _('Director Técnico')
-        PORTERO = 'PO', _('Portero')
-        CENTRAL = 'DFC', _('Central')
-        LATERAL_DER = 'LD', _('Lateral Derecho')
-        LATERAL_IZQ = 'LI', _('Lateral Izquierdo')
-        MEDIO_DER = 'MD', _('Medio Derecho')
-        MEDIO_IZQ = 'MI', _('Medio Izquierdo')
-        MEDIO_CENT = 'MC', _('Medio Centro')
-        DELANTERO_CENT = 'DC', _('Delantero Centro')
-        EXTREMO_DER = 'ED', _('Extremo Derecho')
-        EXTREMO_IZQ = 'EI', _('Extremo Izquierdo')
-        MEDIO_CENT_OF = 'MCO', _('Medio Centro Ofensivo')
-
-    tipo_posicion = models.CharField(max_length=3,
-        choices=Rol.choices, default=Rol.PORTERO)
-
-
-    # end class
 #end class
 class Miembro(models.Model):
     rut = models.CharField(max_length=10, primary_key=True)
     nombre = models.CharField(max_length=50, null=False)
     nacionalidad = models.CharField(max_length=50, null=False)
     edad = models.IntegerField(null=False)
-    dorsal = models.IntegerField()
+    dorsal = models.IntegerField(null=True, blank=True)
     '''a continuación FK de la tabla Posicion'''
-    posicion = models.ForeignKey(Posicion,on_delete=models.CASCADE)
+    posicion = models.CharField(max_length=40,
+        choices=POSITION_CHOICES, default='PO')
 
     ''' Aquí simplemente se definió una tabla con sus atributos 
     por ejemplo el nombre en la base de datos se traducirá a 

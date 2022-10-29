@@ -13,9 +13,17 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from xml.etree.ElementInclude import include
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+
+''' Aquí se definen el conjunto de urls que compondrán
+    nuestro proyecto, por ahora sólo se está trabjando con una
+    sola app (team_register), por lo tanto se hace lo de la línea 
+    anterior, en otras palabras, la línea anterior le dice 
+    a Django que las urls para team_register empiezan con team/'''
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('team/', include(('team_register.urls', 'team_register'), namespace='team_register')),
 ]
