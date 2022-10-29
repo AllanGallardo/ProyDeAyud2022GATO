@@ -3,4 +3,6 @@
 página hija de base.html -->
 {% block content %}
     <h1>CRUD Equipo de Fútbol</h1>
+    <br><br>
+    <a href="{% url 'team_register:nuevo-miembro' %}">Añadir nuevo miembro</a>
 {% endblock content %}
