@@ -4,5 +4,6 @@ página hija de base.html -->
 {% block content %}
     <h1>CRUD Equipo de Fútbol</h1>
     <br><br>
-    <a href="{% url 'team_register:nuevo-miembro' %}">Añadir nuevo miembro</a>
+    <a href="{% url 'team_register:nuevo-miembro' %}">Añadir nuevo miembro</a> - 
+    <a href="{% url 'team_register:list' %}">Ver miembros</a>
 {% endblock content %}

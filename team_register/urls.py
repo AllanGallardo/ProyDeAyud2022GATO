@@ -16,6 +16,6 @@ urlpatterns = [
     # url para añadir un miembro del equipo
     path('nuevo-miembro/', views.agregar, name='nuevo-miembro'),
     # lista del equipo
-    path('list/', views.listar, name='list')
+    path('list/', views.listar, name='list'),
 ]
 

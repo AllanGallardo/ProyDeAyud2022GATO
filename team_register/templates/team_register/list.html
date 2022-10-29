@@ -1,5 +1,41 @@
-{% extends 'team/register/base.html' %}
+{% extends 'team_register/base.html' %}
 
 {% block content %}
-    <p>aquí irá la lista</p> 
+    <h1>Miembros del equipo</h1>
+    <table>
+        <thead>
+            <!-- Encabezados de la tabla -->
+            <tr> <!--Etiqueta para definir una fila de la tabla-->
+                <th>Rut</th> <!--Etiqueta para definir un encabezado de la tabla-->
+                <th>Nombre</th>
+                <th>Nacionalidad</th>
+                <th>Edad</th>
+                <th>Dorsal</th>
+                <th>Posición</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <!-- Contenido de la tabla -->
+            {% for member in  members%}
+            <!-- Si se recuerdan en views.py, en la función listar se pasó el contexto con un
+            par key-value ('members': Mymembers), ahora bien en este HTML doc se puede ocupar esa key 
+            como se está haciendo en la definición del ciclo for-->
+            <!-- Aquí se evidencia otra de las ventajas de Django, dentro
+            del HTML se puede ocupar pseudocódigo en python para desplegar datos, 
+            de esta forma con un simple ciclo for se pueden mostrar por pantalla todos los datos
+            sin importar la cantidad -->
+                <tr>
+                    <td>{{member.rut}}<!--De esta forma se
+                    despliegan los datos por pantalla, con {{ dato }}-->
+                    </td> <!-- Etiqueta para una celda de la tabla -->
+                    <td>{{member.nacionalidad}}</td>
+                    <td>{{member.edad}}</td>
+                    <td>{{member.dorsal}}</td>
+                    <td>{{member.posicion}}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+
+    </table>
 {% endblock content %}

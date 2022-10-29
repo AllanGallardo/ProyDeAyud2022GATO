@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <!-- Esta será la plantilla base de todas nuestras 
 páginas del sitio, esto nos ayuda mucho a reutilizar 
@@ -7,6 +8,7 @@ Esto se llama herencia de páginas-->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
     <title>Registro Equipo de fútbol</title>
 </head>
 <body>

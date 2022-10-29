@@ -16,9 +16,17 @@ def index(request):
 # end  def
 
 def listar(request):
-    return render(request, 'team_register/list.html')
+    '''Función que obtiene los miembros con sus datos desde la base de datos
+    y se los envía al archivo HTML correspondiente'''
+    myMembers = Miembro.objects.all() # Consulta SQL, equivalente a select * from Miembro;
+    context = {'members': myMembers}
+    ''' La variable anterior corresponde al contexto de la página respectiva, este contexto
+    es un diccionario y dentro de él se coloca toda la información que le queramos pasar al archivo HTML,
+    en este caso estamos enviándole a la página list.html todos los datos de los miembros del equipo'''
+    return render(request, 'team_register/list.html', context) # importante enviar el contexto
 
 def agregar(request):
+    '''Función que agrega un nuevo miembro al equipo'''
     if request.method == "GET":
         # Usuario no ha ingresado info, se crea form vacío
         form = MemberForm() # instancia de un form para Miembro
