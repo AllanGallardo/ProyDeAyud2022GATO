@@ -12,6 +12,11 @@
                 <th>Edad</th>
                 <th>Dorsal</th>
                 <th>Posición</th>
+                <th>
+                    <form action="{% url 'team_register:index' %}">
+                        <button>Inicio</button>
+                    </form>
+                </th>
             </tr>
         </thead>
 
@@ -34,6 +39,15 @@
                     <td>{{member.edad}}</td>
                     <td>{{member.dorsal}}</td>
                     <td>{{member.posicion}}</td>
+                    <td>
+                        <!-- Esta celda corresponderá para los botones
+                        de editar y eliminar un miembro -->
+                        <form action="{% url 'team_register:eliminar-miembro' member.rut %}" method="post">
+                            {% csrf_token %}
+                            <button>Eliminar</button>
+                        </form>
+                    </td>
+                    
                 </tr>
             {% endfor %}
         </tbody>

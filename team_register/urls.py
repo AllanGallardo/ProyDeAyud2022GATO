@@ -17,5 +17,8 @@ urlpatterns = [
     path('nuevo-miembro/', views.agregar, name='nuevo-miembro'),
     # lista del equipo
     path('list/', views.listar, name='list'),
+    # eliminar miembro
+    path('delete/<str:rut>/', views.eliminar, name='eliminar-miembro'),
+    # esta url tendrá la forma de .../delete/4 siendo 4 el id de ejemplo
 ]
 

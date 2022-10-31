@@ -2,7 +2,7 @@
 
 {% block content %}
     <h1>Registro del equipo</h1>
-    <form method="post" action="" autocomplete="off">
+    <form method="post" action="#" autocomplete="off">
         {% csrf_token %} <!--seguridad para nuestros forms-->
         {{ form.as_p}}
         <button type="submit">Añadir miembro</button>
