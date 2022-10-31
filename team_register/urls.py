@@ -19,6 +19,8 @@ urlpatterns = [
     path('list/', views.listar, name='list'),
     # eliminar miembro
     path('delete/<str:rut>/', views.eliminar, name='eliminar-miembro'),
-    # esta url tendrá la forma de .../delete/4 siendo 4 el id de ejemplo
+    # esta url tendrá la forma de .../delete/7373-4 siendo 7373-4 el rut de ejemplo
+    # editar miembro
+    path('edit/<str:rut>', views.editar, name='editar-miembro'),
 ]
 

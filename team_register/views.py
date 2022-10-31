@@ -41,8 +41,14 @@ def agregar(request):
 # end def
 
 def eliminar(request, rut):
-    ''' Función que dado un id elimina el miembro del equipo correspondiente '''
+    ''' Función que dado un rut elimina el miembro del equipo correspondiente '''
     deleteMiembro = Miembro.objects.get(pk=rut) # equivalente a SQL Query SELECT * from Miembro WHERE rut = rut;
     deleteMiembro.delete() # se elimina de la base de datos
     return redirect('/team/list/') # se redirige a la página donde se muestra la lista de miembros
+# end def
+
+def editar(request, rut):
+    '''Función que dado un rut despliega la información de dicho miembro
+    para editarla y finalamente guardarla en la base de datos'''
+    pass
 # end def

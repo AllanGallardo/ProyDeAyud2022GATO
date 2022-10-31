@@ -42,6 +42,9 @@
                     <td>
                         <!-- Esta celda corresponderá para los botones
                         de editar y eliminar un miembro -->
+                        <a href="{% url 'team_register:editar-miembro' member.rut %}">
+                            <button>Editar</button>
+                        </a>
                         <form action="{% url 'team_register:eliminar-miembro' member.rut %}" method="post">
                             {% csrf_token %}
                             <button>Eliminar</button>
