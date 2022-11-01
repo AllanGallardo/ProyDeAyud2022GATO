@@ -50,5 +50,15 @@ def eliminar(request, rut):
 def editar(request, rut):
     '''Función que dado un rut despliega la información de dicho miembro
     para editarla y finalamente guardarla en la base de datos'''
-    pass
+    miembro = Miembro.objects.get(pk=rut) # se busca en la BD el miembro con el rut correspondiente
+    if request.method == 'GET':
+        # Usuario no ha ingresado info, se crea form con datos establecidos
+        form = MemberForm(instance=miembro) # se pasa el miembro como parámetro para que se llene el form con los datos
+        return render(request, 'team_register/editar-miembro.html', {'form': form})
+    else:
+        # POST, usuario editó los datos, se procesan y se guardan en la BD
+        form = MemberForm(request.POST, instance=miembro) # actualizar form con nuevos datos
+        if form.is_valid():
+            form.save()
+        return redirect('/team')
 # end def

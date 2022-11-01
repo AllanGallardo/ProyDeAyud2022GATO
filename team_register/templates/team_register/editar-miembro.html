@@ -1,0 +1,11 @@
+{% extends 'team_register/base.html' %}
+
+{% block content %}
+    <h1>Editar miembro</h1>
+    <form method="post" action="#" autocomplete="off">
+        {% csrf_token %} <!--seguridad para nuestros forms-->
+        {{ form.as_p}}
+        <button type="submit">Editar miembro</button>
+    </form>
+{% endblock content %}
+
