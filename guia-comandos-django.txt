@@ -1,3 +1,5 @@
+PRIMEROS PASO PARA INICIAR PROYECTO EN DJANGO
+
 *Crear ambiente virtual(para este ejemplo y los siguientes el nombre del ambiente virtual será ayudantia_env):
 	py -m venv ayudantia_env 
 	si no funciona ocupar python en vez de py y si tampoco funciona añadir ruta del archivo pip al path del sistema
