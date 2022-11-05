@@ -3,11 +3,5 @@ table, th, td {
     border-collapse: collapse;
 }
 
-/*add css file to html template in django?
-from django.conf import settings
-from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-
-if settings.DEBUG:
-    urlpatterns += staticfiles_urlpatterns()*/
 
 

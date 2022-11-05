@@ -1,0 +1,36 @@
+*Crear ambiente virtual(para este ejemplo y los siguientes el nombre del ambiente virtual será ayudantia_env):
+	py -m venv ayudantia_env 
+	si no funciona ocupar python en vez de py y si tampoco funciona añadir ruta del archivo pip al path del sistema
+
+*Activar ambiente
+	ayudantia_env\Scripts\activate
+* Desactivar ambiente
+	deactivate
+
+* Instalar Django
+	pip install Django (ejecutar teniendo el ambiente virtual activado)
+
+* Crear proyecto de Django (nombre del proyecto será mi_proyecto)
+	django-admin.py startproject mi_proyecto . 
+	(el punto al final simplificará las cosas cuando quieran subir su proyecto a un servidor)
+
+* Activar servidor web de prueba
+	python manage.py runserver
+
+* Crear App dentro del proyecto (nombre de la app será mi_app)
+	python manage.py startapp mi_app
+	NOTA: colocar el nombre de la app en settings.py en la sección INSTALLED_APPS
+
+* Instalar adaptador para conectar con postgresql
+	pip install psycopg2
+
+* Hacer migración incial a la base de datos
+	python manage.py migrate
+	IMPORTANTE: para ejecutar este comando ya deben de tener la base de datos creada en PostgreSQL y colocar 
+				los datos correspondientes de la base de datos en settings.py en la sección DATABASES
+
+* Pasos para crear esquema de la base de datos (las tablas con sus atributos)
+	1. editar archivo models.py 
+	2. ejecutar comando python manage.py makemigrations mi_app 
+	3. ejecutar comando python manage.py migrate
+	NOTA: ejecutar estos pasos cada vez que editen el archivo models.py y siempre tener el ambiente virtual activado al ejecutar todos los comandos
