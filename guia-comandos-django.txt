@@ -16,7 +16,7 @@ PRIMEROS PASO PARA INICIAR PROYECTO EN DJANGO
 	django-admin.py startproject mi_proyecto . 
 	(el punto al final simplificará las cosas cuando quieran subir su proyecto a un servidor)
 
-* Activar servidor web de prueba
+* Activar servidor web de prueba para visualizar cambios
 	python manage.py runserver
 
 * Crear App dentro del proyecto (nombre de la app será mi_app)
