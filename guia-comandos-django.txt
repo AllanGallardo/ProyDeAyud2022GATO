@@ -29,7 +29,9 @@ PRIMEROS PASO PARA INICIAR PROYECTO EN DJANGO
 * Hacer migración incial a la base de datos
 	python manage.py migrate
 	IMPORTANTE: para ejecutar este comando ya deben de tener la base de datos creada en PostgreSQL y colocar 
-				los datos correspondientes de la base de datos en settings.py en la sección DATABASES
+				los datos correspondientes de la base de datos en settings.py en la sección DATABASES,
+				en caso de que se utilice SQLite simplemente se corre el comando y se creará la base de datos
+				automáticamente
 
 * Pasos para crear esquema de la base de datos (las tablas con sus atributos)
 	1. editar archivo models.py 
